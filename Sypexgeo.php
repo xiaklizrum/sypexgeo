@@ -1,15 +1,4 @@
 <?php
-/**
- * Class Sypexgeo.
- *
- * Provide GeoIP through SypexGeo API
- * @link http://sypexgeo.net/
- *
- * @author Igor Cherkashin aka JiSoft <jisoft.dn@gmail.com
- * @created 11.06.14  18:14
- * @version 0.1.0
- * @since 2.0
- */
 
 namespace SypexGeo;
 

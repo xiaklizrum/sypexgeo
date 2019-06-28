@@ -47,7 +47,7 @@ class SxGeo
 
     public function __construct($db_file = 'SxGeoCityMax.dat', $type = SXGEO_FILE)
     {
-        $this->fh = fopen(__DIR__.'/'.$db_file, 'rb');
+        $this->fh = fopen($db_file, 'rb');
         // Сначала убеждаемся, что есть файл базы данных
         $header = fread($this->fh, 40); // В версии 2.2 заголовок увеличился на 8 байт
         if (substr($header, 0, 3) != 'SxG') {

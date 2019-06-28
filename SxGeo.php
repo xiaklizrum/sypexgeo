@@ -10,7 +10,7 @@
 |   http://sypex.net/bsd_license.txt                                        |
 \***************************************************************************/
 
-namespace jisoft\sypexgeo;
+namespace SypexGeo;
 
 define ('SXGEO_FILE', 0);
 define ('SXGEO_MEMORY', 1);

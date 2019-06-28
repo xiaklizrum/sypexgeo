@@ -2,7 +2,6 @@
   "name": "xiaklizrum/sypexgeo",
   "description": "lightweight, dependency-less fork of jisoft/yii2-sypexgeo",
   "keywords": [
-    "yii2",
     "sypexgeo",
     "geo",
     "geolocation",

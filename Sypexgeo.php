@@ -79,11 +79,11 @@ class Sypexgeo
      *   ]
      *  ```
      */
-    public function get($ip='')
+    public function get($ip = '')
     {
-        if (empty($ip))
+        if (empty($ip)) {
             $this->getIP();
-        else if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        } else if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             return false;
         } else {
             $this->ip = $ip;
@@ -92,12 +92,15 @@ class Sypexgeo
 
         $this->getSypexGeo();
         $data = $this->_sypex->getCityFull($this->ip);
-        if (isset($data['city']))
+        if (isset($data['city'])) {
             $this->city = $data['city'];
-        if (isset($data['region']))
+        }
+        if (isset($data['region'])) {
             $this->region = $data['region'];
-        if (isset($data['country']))
+        }
+        if (isset($data['country'])) {
             $this->country = $data['country'];
+        }
         return empty($data) ? false : $data;
     }
 
@@ -107,18 +110,19 @@ class Sypexgeo
      */
     public function getIP()
     {
-        if(getenv('HTTP_CLIENT_IP'))
+        if (getenv('HTTP_CLIENT_IP')) {
             $ip = getenv('HTTP_CLIENT_IP');
-        elseif(getenv('HTTP_X_FORWARDED_FOR'))
+        } elseif (getenv('HTTP_X_FORWARDED_FOR')) {
             $ip = getenv('HTTP_X_FORWARDED_FOR');
-        elseif(getenv('HTTP_X_FORWARDED'))
+        } elseif (getenv('HTTP_X_FORWARDED')) {
             $ip = getenv('HTTP_X_FORWARDED');
-        elseif(getenv('HTTP_FORWARDED_FOR'))
+        } elseif (getenv('HTTP_FORWARDED_FOR')) {
             $ip = getenv('HTTP_FORWARDED_FOR');
-        elseif(getenv('HTTP_FORWARDED'))
+        } elseif (getenv('HTTP_FORWARDED')) {
             $ip = getenv('HTTP_FORWARDED');
-        else
+        } else {
             $ip = getenv('REMOTE_ADDR');
+        }
 
         $this->ip = $ip;
         $this->ipAsLong = sprintf('%u', ip2long($ip));
